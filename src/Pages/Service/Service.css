@@ -1,0 +1,285 @@
+/* Service.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-red: #ff0000;
+  --primary-yellow: #ffcc00;
+  --dark: #171717;
+  --light: #ffffff;
+}
+
+.service-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #f9f9f9 0%, #ffffff 100px);
+}
+
+/* Animated Header */
+.service-header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.logo-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 25px;
+}
+
+.logo {
+  height: 90px;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.logo-glow {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: radial-gradient(circle, var(--primary-red) 0%, transparent 70%);
+  opacity: 0.3;
+  z-index: 1;
+  animation: pulse 3s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.2; }
+  100% { transform: scale(1.05); opacity: 0.4; }
+}
+
+.service-header h1 {
+  color: var(--dark);
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+}
+
+.service-header h1::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: var(--primary-red);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 60%);
+}
+
+.service-header h2 {
+  color: #555;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.divider {
+  height: 3px;
+  width: 120px;
+  background: rgba(0,0,0,0.1);
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.divider-inner {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-yellow);
+  animation: slideIn 1.5s forwards;
+}
+
+@keyframes slideIn {
+  to { left: 0; }
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.service-card {
+  background: var(--light);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--accent-color);
+}
+
+.image-container {
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.5) 100%);
+  z-index: 1;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.service-card:hover .image-container img {
+  transform: scale(1.1);
+}
+
+.card-content {
+  padding: 25px;
+  position: relative;
+}
+
+.service-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -40px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.service-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
+.card-content h3 {
+  color: var(--dark);
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.card-content p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.accent-bar {
+  height: 3px;
+  width: 40px;
+  background: var(--accent-color);
+  margin-top: 20px;
+  transition: width 0.3s ease;
+}
+
+.service-card:hover .accent-bar {
+  width: 80px;
+}
+
+/* Call-to-Action */
+.cta-section {
+  text-align: center;
+  margin-top: 40px;
+  padding: 40px 0;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.cta-button {
+  background: var(--primary-red);
+  color: white;
+  border: none;
+  padding: 15px 35px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+.cta-button:hover {
+  background: var(--dark);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.cta-button svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover svg {
+  transform: translateX(5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .service-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .service-header h2 {
+    font-size: 1.2rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .image-container {
+    height: 200px;
+  }
+  
+  .cta-section {
+    padding: 30px 0;
+  }
+}
